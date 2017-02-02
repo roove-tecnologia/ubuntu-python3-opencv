@@ -35,3 +35,6 @@ ADD opencv-3.2.0.zip /opencv-3.2.0.zip
 ADD opencv_contrib-3.2.0.zip /opencv_contrib-3.2.0.zip
 ADD build-opencv-ubuntu.sh /build-opencv.sh
 RUN	/bin/sh /build-opencv.sh
+
+ADD build-wkhtmltox-ubuntu.sh /build-wkhtmltox.sh
+RUN	/bin/sh /build-wkhtmltox.sh
