@@ -36,5 +36,7 @@ ADD opencv_contrib-3.2.0.zip /opencv_contrib-3.2.0.zip
 ADD build-opencv-ubuntu.sh /build-opencv.sh
 RUN	/bin/sh /build-opencv.sh
 
+RUN apt-get install -y libxrender1 fontconfig xvfb
+
 ADD build-wkhtmltox-ubuntu.sh /build-wkhtmltox.sh
 RUN	/bin/sh /build-wkhtmltox.sh
