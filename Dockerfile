@@ -44,8 +44,9 @@ RUN echo "deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty-backports m
 RUN apt-get update
 
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-RUN apt-get install -y ttf-mscorefonts-installer
-RUN fc-cache
+
+RUN apt-get install -y ubuntu-restricted-extras
+RUN apt-get install -y gdebi
 
 ADD build-wkhtmltox-ubuntu.sh /build-wkhtmltox.sh
 RUN	/bin/sh /build-wkhtmltox.sh
