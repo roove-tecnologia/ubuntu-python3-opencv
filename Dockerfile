@@ -38,5 +38,14 @@ RUN	/bin/sh /build-opencv.sh
 
 RUN apt-get install -y libxrender1 fontconfig xvfb
 
+RUN echo "deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty multiverse" >> /etc/apt/sources.list.d/multiverse.list
+RUN echo "deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty-updates multiverse" >> /etc/apt/sources.list.d/multiverse.list
+RUN echo "deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list.d/multiverse.list
+RUN apt-get update
+
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+RUN apt-get install -y ttf-mscorefonts-installer
+RUN fc-cache
+
 ADD build-wkhtmltox-ubuntu.sh /build-wkhtmltox.sh
 RUN	/bin/sh /build-wkhtmltox.sh
